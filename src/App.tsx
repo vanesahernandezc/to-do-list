@@ -6,8 +6,10 @@ import InputTask from "./components/InputTask";
 function App() {
   return (
     <Container>
-      <Header />
-      <InputTask />
+      <>
+        <Header />
+        <InputTask />
+      </>
     </Container>
   );
 }
