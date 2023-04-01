@@ -4,12 +4,12 @@ import { v4 as uuidv4 } from "uuid";
 
 export default function InputTask(props: any) {
   const options = [
-    { key: "deporte", text: "Deporte", value: "deporte" },
-    { key: "casa", text: "Casa", value: "casa" },
-    { key: "oficina", text: "Oficina", value: "oficina" },
-    { key: "otra", text: "Otra", value: "otra" },
+    { key: "sports", text: "Sports", value: "sports" },
+    { key: "house", text: "House", value: "house" },
+    { key: "office", text: "Office", value: "office" },
+    { key: "other", text: "Other", value: "other" },
   ];
-
+  const { createTask } = props;
   const [task, setTask] = useState({
     idTask: "",
     taskName: "",
@@ -42,8 +42,14 @@ export default function InputTask(props: any) {
     setError(false);
     //asignar un ID
     task.idTask = uuidv4();
-    //Crear la tarea
+    //Crear la tarea y no createTask = task
+    createTask(task);
     //Limpiar los inputs
+    setTask({
+      idTask: "",
+      taskName: "",
+      categoryTask: "",
+    });
   };
 
   return (
@@ -53,7 +59,7 @@ export default function InputTask(props: any) {
           <Input
             size="small"
             icon="add"
-            placeholder="Escribe tu tarea..."
+            placeholder="Type your task"
             iconPosition="left"
             name="taskName"
             value={task.taskName}
@@ -64,12 +70,12 @@ export default function InputTask(props: any) {
             options={options}
             className="select-form-task"
             name="categoryTask"
-            placeholder="Categoria"
+            placeholder="Category"
             value={task.categoryTask}
             onChange={onChangeCategory}
           />
           <Button type="submit" color="violet" onClick={onSubtmitTask}>
-            Añadir tarea
+            Add Task
           </Button>
         </Input>
       </Grid>
@@ -77,7 +83,7 @@ export default function InputTask(props: any) {
         <Grid centered>
           <Header as="h4" color="red" className="alert-error-form">
             <Icon name="close" />
-            <Header.Content>La tarea es obligatoria</Header.Content>
+            <Header.Content>The task is mandatory</Header.Content>
             <Icon name="close" />
           </Header>
         </Grid>

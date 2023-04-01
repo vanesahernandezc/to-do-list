@@ -5,7 +5,7 @@ export default function Header() {
     <div className="header">
       <Head as="h1" icon textAlign="center" color="violet">
         <Icon inverted color="violet" name="list alternate outline" circular />
-        <Head.Content>Listado de tareas</Head.Content>
+        <Head.Content>List of tasks</Head.Content>
       </Head>
     </div>
   );
