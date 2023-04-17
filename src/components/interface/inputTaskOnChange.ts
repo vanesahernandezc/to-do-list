@@ -1,0 +1,3 @@
+interface inputTaskProps {
+  onChange: {};
+}

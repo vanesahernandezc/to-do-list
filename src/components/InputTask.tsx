@@ -91,4 +91,3 @@ export default function InputTask(props: any) {
     </>
   );
 }
-//cap 38
